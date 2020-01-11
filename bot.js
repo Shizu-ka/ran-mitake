@@ -243,7 +243,7 @@ client.on('message', async msg => { // eslint-disable-line
                       // var response = await msg.channel.awaitMessages(msg => msg.content > 0 && msg.content < 11, 
                         var response = await msg.channel.awaitMessages(filter,{
                             maxMatches: 1,
-                            time: 10000,
+                            time: 30000,
                             errors: ['time']
                         });
                     } catch (err) {
@@ -297,7 +297,7 @@ client.on('message', async msg => { // eslint-disable-line
  
                  return msg.channel.send(queueEm);  
     */
-    } else if (command === 'stop') {
+    } else if (command === 'leave') {
         if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
         if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
         serverQueue.songs = [];
